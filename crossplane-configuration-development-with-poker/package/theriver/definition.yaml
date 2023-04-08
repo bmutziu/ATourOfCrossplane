@@ -1,12 +1,12 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: therivers.cardgames.aaroneaton.com
+  name: therivers.cardgames.bmutziu.me
 spec:
   claimNames:
     kind: DealTheRiver
     plural: dealtherivers
-  group: cardgames.aaroneaton.com
+  group: cardgames.bmutziu.me
   names:
     kind: TheRiver
     plural: therivers

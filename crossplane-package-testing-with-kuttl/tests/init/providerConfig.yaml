@@ -8,7 +8,7 @@ type: Opaque
 stringData:
   key: nocreds
 ---
-apiVersion: aws.crossplane.io/v1beta1
+apiVersion: aws.upbound.io/v1beta1
 kind: ProviderConfig
 metadata:
   name: default

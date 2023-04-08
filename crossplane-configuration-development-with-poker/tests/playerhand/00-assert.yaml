@@ -3,7 +3,7 @@ kind: TestAssert
 timeout: 30
 
 ---
-apiVersion: providercards.aaroneaton.com/v1alpha1
+apiVersion: providercards.bmutziu.me/v1alpha1
 kind: Card
 metadata:
   name: playerone-01
@@ -13,7 +13,7 @@ spec:
     name: tour
 
 ---
-apiVersion: providercards.aaroneaton.com/v1alpha1
+apiVersion: providercards.bmutziu.me/v1alpha1
 kind: Card
 metadata:
   name: playerone-02

@@ -1,0 +1,8 @@
+apiVersion: providercards.bmutziu.me/v1alpha1
+kind: Card
+metadata:
+  name: anothercard
+spec:
+  forProvider: {}
+  providerConfigRef:
+    name: tour

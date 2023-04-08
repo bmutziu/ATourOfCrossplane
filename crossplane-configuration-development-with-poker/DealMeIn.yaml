@@ -1,0 +1,10 @@
+apiVersion: cardgames.bmutziu.me/v1alpha1
+kind: DealMeIn
+metadata:
+  name: my-hand
+  namespace: my-name-space
+spec:
+  playerName: playerone
+  tableName: tour
+  writeConnectionSecretToRef:
+    name: my-cards

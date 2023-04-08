@@ -9,7 +9,7 @@ stringData:
   credentials: |
         { "seed": 1 }
 ---
-apiVersion: providercards.aaroneaton.com/v1alpha1
+apiVersion: providercards.bmutziu.me/v1alpha1
 kind: ProviderConfig
 metadata:
   name: tour

@@ -1,0 +1,9 @@
+apiVersion: cardgames.bmutziu.me/v1alpha1
+kind: DealTheFlop
+metadata:
+  name: tour
+  namespace: my-shared-space
+spec:
+  tableName: tour
+  writeConnectionSecretToRef:
+    name: flop-cards

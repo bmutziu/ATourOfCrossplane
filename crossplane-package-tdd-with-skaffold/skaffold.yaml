@@ -9,7 +9,7 @@ deploy:
               [
                 "sh",
                 "-c",
-                "kubectl wait --for condition=healthy --timeout=300s provider/crossplane-provider-aws",
+                "kubectl wait --for condition=Healthy --timeout=300s providers.pkg.crossplane.io/upbound-provider-aws",
               ]
     releases:
       - name: universal-crossplane
@@ -19,7 +19,7 @@ deploy:
         createNamespace: true
         valuesFiles:
           - tests/uxp-values.yaml
-        version: 1.5.1-up.1
+        version: 1.11.3-up.1
         wait: true
   kubectl:
     hooks:
@@ -29,10 +29,10 @@ deploy:
               [
                 "sh",
                 "-c",
-                "kubectl kuttl test --test ./tests/compositions/compositenetwork/; exit 0",
+                "kubectl kuttl test --test ./tests/compositions/; exit 0",
               ]
     manifests:
       - package/network/definition.yaml
       - package/network/composition.yaml
-      # - examples/network.yaml
-
+      # This file can only be un-commented once the XRD is healthy in the Control Plane
+      - examples/network.yaml

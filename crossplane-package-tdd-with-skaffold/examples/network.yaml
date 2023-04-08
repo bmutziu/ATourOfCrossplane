@@ -1,8 +1,6 @@
-apiVersion: aws.platformref.crossplane.io/v1alpha1
-kind: Network
+apiVersion: aws.platformref.upbound.io/v1alpha1
+kind: XNetwork
 metadata:
-  name: network
+  name: networkk
 spec:
   id: platform-ref-aws-network
-  clusterRef:
-    id: platform-ref-aws-cluster

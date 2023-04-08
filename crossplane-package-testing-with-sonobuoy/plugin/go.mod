@@ -1,4 +1,4 @@
-module github.com/aaronme/ATourOfCrossplane/crossplane-package-testing-with-sonobuoy
+module github.com/bmutziu/ATourOfCrossplane/crossplane-package-testing-with-sonobuoy
 
 go 1.17
 

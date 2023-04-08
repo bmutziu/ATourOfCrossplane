@@ -5,11 +5,11 @@ metadata:
 spec:
   writeConnectionSecretsToNamespace: upbound-system
   compositeTypeRef:
-    apiVersion: cardgames.aaroneaton.com/v1alpha1
+    apiVersion: cardgames.bmutziu.me/v1alpha1
     kind: TheRiver
   resources:
     - base:
-        apiVersion: providercards.aaroneaton.com/v1alpha1
+        apiVersion: providercards.bmutziu.me/v1alpha1
         kind: Card
         spec:
           forProvider: {}
@@ -24,7 +24,7 @@ spec:
         - fromFieldPath: spec.tableName
           toFieldPath: spec.providerConfigRef.name
     - base:
-        apiVersion: providercards.aaroneaton.com/v1alpha1
+        apiVersion: providercards.bmutziu.me/v1alpha1
         kind: Card
         spec:
           forProvider: {}

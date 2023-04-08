@@ -1,34 +1,29 @@
-
 ---
-apiVersion: ec2.aws.crossplane.io/v1beta1
-kind: Subnet
-metadata:
-  labels:
-    access: private
-    crossplane.io/claim-name: network
-    networks.aws.platformref.crossplane.io/network-id: platform-ref-aws-network
-    zone: us-west-2a
----
-apiVersion: ec2.aws.crossplane.io/v1beta1
+apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
 metadata:
   labels:
     access: public
-    crossplane.io/claim-name: network
-    networks.aws.platformref.crossplane.io/network-id: platform-ref-aws-network
+    networks.aws.platformref.upbound.io/network-id: platform-ref-aws-network
     zone: us-west-2a
 ---
-apiVersion: ec2.aws.crossplane.io/v1beta1
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  labels:
+    access: private
+    networks.aws.platformref.upbound.io/network-id: platform-ref-aws-network
+    zone: us-west-2a
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
 kind: VPC
 metadata:
   labels:
-    crossplane.io/claim-name: network
-    networks.aws.platformref.crossplane.io/network-id: platform-ref-aws-network
+    networks.aws.platformref.upbound.io/network-id: platform-ref-aws-network
+    crossplane.io/composite: network
 spec:
   deletionPolicy: Delete
   forProvider:
     tags:
-    - key: crossplane-kind
-      value: vpc.ec2.aws.crossplane.io
-    - key: crossplane-name
-    - key: crossplane-providerconfig
+      Name: platformref-vpc
+      Owner: Platform Team

@@ -4,9 +4,9 @@ commands:
   # Install XRDs
   - command: kubectl apply -f "${PWD}/package/theflop/"
   # Wait for XRD to become "established"
-  - command: kubectl wait --for condition=established --timeout=20s xrd/theflops.cardgames.aaroneaton.com
+  - command: kubectl wait --for condition=established --timeout=20s xrd/theflops.cardgames.bmutziu.me
 ---
-apiVersion: cardgames.aaroneaton.com/v1alpha1
+apiVersion: cardgames.bmutziu.me/v1alpha1
 kind: DealTheFlop
 metadata:
   name: tour

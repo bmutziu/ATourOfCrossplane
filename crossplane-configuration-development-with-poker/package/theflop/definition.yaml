@@ -1,12 +1,12 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: theflops.cardgames.aaroneaton.com
+  name: theflops.cardgames.bmutziu.me
 spec:
   claimNames:
     kind: DealTheFlop
     plural: dealtheflops
-  group: cardgames.aaroneaton.com
+  group: cardgames.bmutziu.me
   names:
     kind: TheFlop
     plural: theflops

@@ -18,28 +18,26 @@ func TestPlatformRefAWS(t *testing.T) {
 	// We need to declare the GVR for both our XRs and Claims
 	// This is the XR GroupVersionResource
 	compositeResource := schema.GroupVersionResource{
-		Group:    "aws.platformref.crossplane.io",
+		Group:    "aws.platformref.upbound.io",
 		Version:  "v1alpha1",
-		Resource: "compositenetworks", // remember to use the plural
+		Resource: "xnetworks", // remember to use the plural
 	}
 
 	// This is the Claim GroupVersionResource
 	claimResource := schema.GroupVersionResource{
-		Group:    "aws.platformref.crossplane.io",
+		Group:    "aws.platformref.upbound.io",
 		Version:  "v1alpha1",
 		Resource: "networks", // remember to use the plural
 	}
 
 	// This is a claim from https://github.com/upbound/platform-ref-aws/blob/main/examples/network.yaml
 	claim := `---
-apiVersion: aws.platformref.crossplane.io/v1alpha1
+apiVersion: aws.platformref.upbound.io/v1alpha1
 kind: Network
 metadata:
   name: network
 spec:
   id: platform-ref-aws-network
-  clusterRef:
-    id: platform-ref-aws-cluster
 `
 
 	// Unmarshal the Yaml into an Unstructured Resource.
@@ -67,7 +65,7 @@ spec:
 			unstructuredClaim.SetName(claimName)
 			unstructuredClaim.SetNamespace(ns)
 
-			// The e2e-skeleton comes with a client based on their klient type.
+			// The e2e-skeleton comes with a client based on their client type.
 			// We want to use a dynamic client, which enables working with
 			// unstructured resources
 			dynClient, err := newDynamicClient()
@@ -123,11 +121,11 @@ spec:
 				gvr   schema.GroupVersionResource
 				count int
 			}{
-				{"VPC", schema.GroupVersionResource{Group: "ec2.aws.crossplane.io", Version: "v1beta1", Resource: "vpcs"}, 1},
-				{"InternetGateway", schema.GroupVersionResource{Group: "ec2.aws.crossplane.io", Version: "v1beta1", Resource: "internetgateways"}, 1},
-				{"SecurityGroup", schema.GroupVersionResource{Group: "ec2.aws.crossplane.io", Version: "v1beta1", Resource: "securitygroups"}, 1},
-				{"Subnet", schema.GroupVersionResource{Group: "ec2.aws.crossplane.io", Version: "v1beta1", Resource: "subnets"}, 4},
-				{"RouteTable", schema.GroupVersionResource{Group: "ec2.aws.crossplane.io", Version: "v1beta1", Resource: "routetables"}, 1},
+				{"VPC", schema.GroupVersionResource{Group: "ec2.aws.upbound.io", Version: "v1beta1", Resource: "vpcs"}, 1},
+				{"InternetGateway", schema.GroupVersionResource{Group: "ec2.aws.upbound.io", Version: "v1beta1", Resource: "internetgateways"}, 1},
+				{"SecurityGroup", schema.GroupVersionResource{Group: "ec2.aws.upbound.io", Version: "v1beta1", Resource: "securitygroups"}, 1},
+				{"Subnet", schema.GroupVersionResource{Group: "ec2.aws.upbound.io", Version: "v1beta1", Resource: "subnets"}, 4},
+				{"RouteTable", schema.GroupVersionResource{Group: "ec2.aws.upbound.io", Version: "v1beta1", Resource: "routetables"}, 1},
 			}
 
 			// MR Test Case Runs
@@ -141,6 +139,7 @@ spec:
 					}
 
 					count := len(got.Items)
+					t.Logf("Found %d %q", count, mr.name)
 
 					if count != mr.count {
 						t.Errorf("resource %q count is wrong.", mr.name)

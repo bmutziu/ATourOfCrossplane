@@ -1,12 +1,12 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: playerhands.cardgames.aaroneaton.com
+  name: playerhands.cardgames.bmutziu.me
 spec:
   claimNames:
     kind: DealMeIn
     plural: dealmeins
-  group: cardgames.aaroneaton.com
+  group: cardgames.bmutziu.me
   names:
     kind: PlayerHand
     plural: playerhands

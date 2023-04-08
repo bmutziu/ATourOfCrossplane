@@ -1,6 +1,6 @@
 apiVersion: aws.platformref.upbound.io/v1alpha1
-kind: XNetwork
+kind: Network
 metadata:
-  name: network
+  name: networkk8s
 spec:
   id: platform-ref-aws-network
